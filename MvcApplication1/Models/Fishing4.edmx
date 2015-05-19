@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="fishing4Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="fishing4ModelStoreContainer">
+          <EntitySet Name="ADDRESS" EntityType="fishing4Model.Store.ADDRESS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BLOG" EntityType="fishing4Model.Store.BLOG" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ORDER_ADDRESS" EntityType="fishing4Model.Store.ORDER_ADDRESS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ORDER_DETAIL" EntityType="fishing4Model.Store.ORDER_DETAIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ORDER_PAYMENT" EntityType="fishing4Model.Store.ORDER_PAYMENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ORDER_PRODUCT" EntityType="fishing4Model.Store.ORDER_PRODUCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PAYMENT" EntityType="fishing4Model.Store.PAYMENT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PRODUCT" EntityType="fishing4Model.Store.PRODUCT" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RATING" EntityType="fishing4Model.Store.RATING" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USER" EntityType="fishing4Model.Store.USER" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="USER_ROLE" EntityType="fishing4Model.Store.USER_ROLE" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_4nsxta166qmi0u7v02p6gtnxa" Association="fishing4Model.Store.FK_4nsxta166qmi0u7v02p6gtnxa">
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_4vc00e4wflxguoluvgoermt4k" Association="fishing4Model.Store.FK_4vc00e4wflxguoluvgoermt4k">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_8fwysr71n8y9wvp91srveyh0o" Association="fishing4Model.Store.FK_8fwysr71n8y9wvp91srveyh0o">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="RATING" EntitySet="RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bpa0bodql43jldy4j4sdpheaj" Association="fishing4Model.Store.FK_bpa0bodql43jldy4j4sdpheaj">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="RATING" EntitySet="RATING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dq9pplwdj444woowv2vfjh4k8" Association="fishing4Model.Store.FK_dq9pplwdj444woowv2vfjh4k8">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="ADDRESS" EntitySet="ADDRESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_g7684olhda6kidi072aw51mhi" Association="fishing4Model.Store.FK_g7684olhda6kidi072aw51mhi">
+            <End Role="ORDER_ADDRESS" EntitySet="ORDER_ADDRESS" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_j2j8kpywaghe8i36swcxv8784" Association="fishing4Model.Store.FK_j2j8kpywaghe8i36swcxv8784">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="USER_ROLE" EntitySet="USER_ROLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jdgfqlnyvnr58ec37cbeyki2o" Association="fishing4Model.Store.FK_jdgfqlnyvnr58ec37cbeyki2o">
+            <End Role="USER" EntitySet="USER" />
+            <End Role="PAYMENT" EntitySet="PAYMENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ld6cnr5h1q1sl97pg572bixhu" Association="fishing4Model.Store.FK_ld6cnr5h1q1sl97pg572bixhu">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t7ajqtv9m4h5frcpyddnrlhic" Association="fishing4Model.Store.FK_t7ajqtv9m4h5frcpyddnrlhic">
+            <End Role="ORDER_PAYMENT" EntitySet="ORDER_PAYMENT" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDRESS_ID" />
+          </Key>
+          <Property Name="ADDRESS_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="255" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="255" />
+          <Property Name="CITY" Type="varchar" MaxLength="255" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="255" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="STATE" Type="varchar" MaxLength="255" />
+          <Property Name="ZIP" Type="varchar" MaxLength="255" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BLOG">
+          <Key>
+            <PropertyRef Name="BLOG_ID" />
+          </Key>
+          <Property Name="BLOG_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AUTHOR" Type="varchar" MaxLength="255" />
+          <Property Name="CONTENT" Type="text" />
+          <Property Name="INSERT_DATE" Type="datetime" />
+          <Property Name="TITLE" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ORDER_ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDRESS_ID" />
+          </Key>
+          <Property Name="ADDRESS_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ADDRESS1" Type="varchar" MaxLength="255" />
+          <Property Name="ADDRESS2" Type="varchar" MaxLength="255" />
+          <Property Name="CITY" Type="varchar" MaxLength="255" />
+          <Property Name="COUNTRY" Type="varchar" MaxLength="255" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="STATE" Type="varchar" MaxLength="255" />
+          <Property Name="ZIP" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ORDER_ID" />
+          </Key>
+          <Property Name="ORDER_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SHIPPING_STATUS" Type="varchar" MaxLength="255" />
+          <Property Name="TOTAL_PRICE" Type="float" />
+          <Property Name="ADDRESS_ID" Type="int" />
+          <Property Name="PAYMENT_ID" Type="int" />
+          <Property Name="USER_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDER_PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CARD_HOLDER" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_NUMBER" Type="int" />
+          <Property Name="EXP_MONTH" Type="int" />
+          <Property Name="EXP_YEAR" Type="int" />
+        </EntityType>
+        <EntityType Name="ORDER_PRODUCT">
+          <Key>
+            <PropertyRef Name="ORDER_PRODUCT_ID" />
+          </Key>
+          <Property Name="ORDER_PRODUCT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QUATITY" Type="int" />
+          <Property Name="PRODUCT_ID" Type="int" />
+          <Property Name="ORDER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CARD_HOLDER" Type="varchar" MaxLength="255" />
+          <Property Name="CARD_NUMBER" Type="int" />
+          <Property Name="EXP_MONTH" Type="int" />
+          <Property Name="EXP_YEAR" Type="int" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="int" Nullable="false" />
+          <Property Name="DETAIL" Type="varchar" MaxLength="5000" />
+          <Property Name="NAME" Type="varchar" MaxLength="255" />
+          <Property Name="PRICE" Type="float" />
+        </EntityType>
+        <EntityType Name="RATING">
+          <Key>
+            <PropertyRef Name="RATING_ID" />
+          </Key>
+          <Property Name="RATING_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="COMMENT" Type="varchar" MaxLength="255" />
+          <Property Name="RATING_SCORE" Type="float" />
+          <Property Name="USER_ID" Type="int" />
+          <Property Name="PRODUCT_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="255" />
+          <Property Name="ENABLED" Type="tinyint" />
+          <Property Name="FIRST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="LAST_NAME" Type="varchar" MaxLength="255" />
+          <Property Name="PASSWORD" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="USER_ROLE">
+          <Key>
+            <PropertyRef Name="USER_ROLE_ID" />
+          </Key>
+          <Property Name="USER_ROLE_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ROLE" Type="varchar" MaxLength="255" />
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_4nsxta166qmi0u7v02p6gtnxa">
+          <End Role="ORDER_DETAIL" Type="fishing4Model.Store.ORDER_DETAIL" Multiplicity="1" />
+          <End Role="ORDER_PRODUCT" Type="fishing4Model.Store.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_DETAIL">
+              <PropertyRef Name="ORDER_ID" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_4vc00e4wflxguoluvgoermt4k">
+          <End Role="USER" Type="fishing4Model.Store.USER" Multiplicity="0..1" />
+          <End Role="ORDER_DETAIL" Type="fishing4Model.Store.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_8fwysr71n8y9wvp91srveyh0o">
+          <End Role="USER" Type="fishing4Model.Store.USER" Multiplicity="0..1" />
+          <End Role="RATING" Type="fishing4Model.Store.RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="RATING">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bpa0bodql43jldy4j4sdpheaj">
+          <End Role="PRODUCT" Type="fishing4Model.Store.PRODUCT" Multiplicity="0..1" />
+          <End Role="RATING" Type="fishing4Model.Store.RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="RATING">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dq9pplwdj444woowv2vfjh4k8">
+          <End Role="USER" Type="fishing4Model.Store.USER" Multiplicity="1" />
+          <End Role="ADDRESS" Type="fishing4Model.Store.ADDRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADDRESS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_g7684olhda6kidi072aw51mhi">
+          <End Role="ORDER_ADDRESS" Type="fishing4Model.Store.ORDER_ADDRESS" Multiplicity="0..1" />
+          <End Role="ORDER_DETAIL" Type="fishing4Model.Store.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_ADDRESS">
+              <PropertyRef Name="ADDRESS_ID" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="ADDRESS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_j2j8kpywaghe8i36swcxv8784">
+          <End Role="USER" Type="fishing4Model.Store.USER" Multiplicity="1" />
+          <End Role="USER_ROLE" Type="fishing4Model.Store.USER_ROLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="USER_ROLE">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jdgfqlnyvnr58ec37cbeyki2o">
+          <End Role="USER" Type="fishing4Model.Store.USER" Multiplicity="1" />
+          <End Role="PAYMENT" Type="fishing4Model.Store.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ld6cnr5h1q1sl97pg572bixhu">
+          <End Role="PRODUCT" Type="fishing4Model.Store.PRODUCT" Multiplicity="0..1" />
+          <End Role="ORDER_PRODUCT" Type="fishing4Model.Store.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t7ajqtv9m4h5frcpyddnrlhic">
+          <End Role="ORDER_PAYMENT" Type="fishing4Model.Store.ORDER_PAYMENT" Multiplicity="0..1" />
+          <End Role="ORDER_DETAIL" Type="fishing4Model.Store.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_PAYMENT">
+              <PropertyRef Name="PAYMENT_ID" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="PAYMENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="fishing4Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="fishing4Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADDRESSes" EntityType="fishing4Model.ADDRESS" />
+          <EntitySet Name="BLOGs" EntityType="fishing4Model.BLOG" />
+          <EntitySet Name="ORDER_ADDRESS" EntityType="fishing4Model.ORDER_ADDRESS" />
+          <EntitySet Name="ORDER_DETAIL" EntityType="fishing4Model.ORDER_DETAIL" />
+          <EntitySet Name="ORDER_PAYMENT" EntityType="fishing4Model.ORDER_PAYMENT" />
+          <EntitySet Name="ORDER_PRODUCT" EntityType="fishing4Model.ORDER_PRODUCT" />
+          <EntitySet Name="PAYMENTs" EntityType="fishing4Model.PAYMENT" />
+          <EntitySet Name="PRODUCTs" EntityType="fishing4Model.PRODUCT" />
+          <EntitySet Name="RATINGs" EntityType="fishing4Model.RATING" />
+          <EntitySet Name="USERs" EntityType="fishing4Model.USER" />
+          <EntitySet Name="USER_ROLE" EntityType="fishing4Model.USER_ROLE" />
+          <AssociationSet Name="FK_dq9pplwdj444woowv2vfjh4k8" Association="fishing4Model.FK_dq9pplwdj444woowv2vfjh4k8">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="ADDRESS" EntitySet="ADDRESSes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_g7684olhda6kidi072aw51mhi" Association="fishing4Model.FK_g7684olhda6kidi072aw51mhi">
+            <End Role="ORDER_ADDRESS" EntitySet="ORDER_ADDRESS" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_4nsxta166qmi0u7v02p6gtnxa" Association="fishing4Model.FK_4nsxta166qmi0u7v02p6gtnxa">
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_4vc00e4wflxguoluvgoermt4k" Association="fishing4Model.FK_4vc00e4wflxguoluvgoermt4k">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_t7ajqtv9m4h5frcpyddnrlhic" Association="fishing4Model.FK_t7ajqtv9m4h5frcpyddnrlhic">
+            <End Role="ORDER_PAYMENT" EntitySet="ORDER_PAYMENT" />
+            <End Role="ORDER_DETAIL" EntitySet="ORDER_DETAIL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ld6cnr5h1q1sl97pg572bixhu" Association="fishing4Model.FK_ld6cnr5h1q1sl97pg572bixhu">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="ORDER_PRODUCT" EntitySet="ORDER_PRODUCT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_jdgfqlnyvnr58ec37cbeyki2o" Association="fishing4Model.FK_jdgfqlnyvnr58ec37cbeyki2o">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="PAYMENT" EntitySet="PAYMENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_bpa0bodql43jldy4j4sdpheaj" Association="fishing4Model.FK_bpa0bodql43jldy4j4sdpheaj">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="RATING" EntitySet="RATINGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_8fwysr71n8y9wvp91srveyh0o" Association="fishing4Model.FK_8fwysr71n8y9wvp91srveyh0o">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="RATING" EntitySet="RATINGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_j2j8kpywaghe8i36swcxv8784" Association="fishing4Model.FK_j2j8kpywaghe8i36swcxv8784">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="USER_ROLE" EntitySet="USER_ROLE" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDRESS_ID" />
+          </Key>
+          <Property Name="ADDRESS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CITY" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="STATE" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ZIP" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="fishing4Model.FK_dq9pplwdj444woowv2vfjh4k8" FromRole="ADDRESS" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="BLOG">
+          <Key>
+            <PropertyRef Name="BLOG_ID" />
+          </Key>
+          <Property Name="BLOG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AUTHOR" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CONTENT" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="INSERT_DATE" Type="DateTime" />
+          <Property Name="TITLE" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ORDER_ADDRESS">
+          <Key>
+            <PropertyRef Name="ADDRESS_ID" />
+          </Key>
+          <Property Name="ADDRESS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADDRESS1" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ADDRESS2" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CITY" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="COUNTRY" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="STATE" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ZIP" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ORDER_DETAIL" Relationship="fishing4Model.FK_g7684olhda6kidi072aw51mhi" FromRole="ORDER_ADDRESS" ToRole="ORDER_DETAIL" />
+        </EntityType>
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="ORDER_ID" />
+          </Key>
+          <Property Name="ORDER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SHIPPING_STATUS" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="TOTAL_PRICE" Type="Double" />
+          <Property Name="ADDRESS_ID" Type="Int32" />
+          <Property Name="PAYMENT_ID" Type="Int32" />
+          <Property Name="USER_ID" Type="Int32" />
+          <NavigationProperty Name="ORDER_ADDRESS" Relationship="fishing4Model.FK_g7684olhda6kidi072aw51mhi" FromRole="ORDER_DETAIL" ToRole="ORDER_ADDRESS" />
+          <NavigationProperty Name="ORDER_PRODUCT" Relationship="fishing4Model.FK_4nsxta166qmi0u7v02p6gtnxa" FromRole="ORDER_DETAIL" ToRole="ORDER_PRODUCT" />
+          <NavigationProperty Name="USER" Relationship="fishing4Model.FK_4vc00e4wflxguoluvgoermt4k" FromRole="ORDER_DETAIL" ToRole="USER" />
+          <NavigationProperty Name="ORDER_PAYMENT" Relationship="fishing4Model.FK_t7ajqtv9m4h5frcpyddnrlhic" FromRole="ORDER_DETAIL" ToRole="ORDER_PAYMENT" />
+        </EntityType>
+        <EntityType Name="ORDER_PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CARD_HOLDER" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CARD_NUMBER" Type="Int32" />
+          <Property Name="EXP_MONTH" Type="Int32" />
+          <Property Name="EXP_YEAR" Type="Int32" />
+          <NavigationProperty Name="ORDER_DETAIL" Relationship="fishing4Model.FK_t7ajqtv9m4h5frcpyddnrlhic" FromRole="ORDER_PAYMENT" ToRole="ORDER_DETAIL" />
+        </EntityType>
+        <EntityType Name="ORDER_PRODUCT">
+          <Key>
+            <PropertyRef Name="ORDER_PRODUCT_ID" />
+          </Key>
+          <Property Name="ORDER_PRODUCT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QUATITY" Type="Int32" />
+          <Property Name="PRODUCT_ID" Type="Int32" />
+          <Property Name="ORDER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORDER_DETAIL" Relationship="fishing4Model.FK_4nsxta166qmi0u7v02p6gtnxa" FromRole="ORDER_PRODUCT" ToRole="ORDER_DETAIL" />
+          <NavigationProperty Name="PRODUCT" Relationship="fishing4Model.FK_ld6cnr5h1q1sl97pg572bixhu" FromRole="ORDER_PRODUCT" ToRole="PRODUCT" />
+        </EntityType>
+        <EntityType Name="PAYMENT">
+          <Key>
+            <PropertyRef Name="PAYMENT_ID" />
+          </Key>
+          <Property Name="PAYMENT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CARD_HOLDER" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="CARD_NUMBER" Type="Int32" />
+          <Property Name="EXP_MONTH" Type="Int32" />
+          <Property Name="EXP_YEAR" Type="Int32" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="fishing4Model.FK_jdgfqlnyvnr58ec37cbeyki2o" FromRole="PAYMENT" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="Int32" Nullable="false" />
+          <Property Name="DETAIL" Type="String" MaxLength="5000" Unicode="false" FixedLength="false" />
+          <Property Name="NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="PRICE" Type="Double" />
+          <NavigationProperty Name="ORDER_PRODUCT" Relationship="fishing4Model.FK_ld6cnr5h1q1sl97pg572bixhu" FromRole="PRODUCT" ToRole="ORDER_PRODUCT" />
+          <NavigationProperty Name="RATINGs" Relationship="fishing4Model.FK_bpa0bodql43jldy4j4sdpheaj" FromRole="PRODUCT" ToRole="RATING" />
+        </EntityType>
+        <EntityType Name="RATING">
+          <Key>
+            <PropertyRef Name="RATING_ID" />
+          </Key>
+          <Property Name="RATING_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COMMENT" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="RATING_SCORE" Type="Double" />
+          <Property Name="USER_ID" Type="Int32" />
+          <Property Name="PRODUCT_ID" Type="Int32" />
+          <NavigationProperty Name="PRODUCT" Relationship="fishing4Model.FK_bpa0bodql43jldy4j4sdpheaj" FromRole="RATING" ToRole="PRODUCT" />
+          <NavigationProperty Name="USER" Relationship="fishing4Model.FK_8fwysr71n8y9wvp91srveyh0o" FromRole="RATING" ToRole="USER" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EMAIL" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="ENABLED" Type="Byte" />
+          <Property Name="FIRST_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="LAST_NAME" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="PASSWORD" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="ADDRESSes" Relationship="fishing4Model.FK_dq9pplwdj444woowv2vfjh4k8" FromRole="USER" ToRole="ADDRESS" />
+          <NavigationProperty Name="ORDER_DETAIL" Relationship="fishing4Model.FK_4vc00e4wflxguoluvgoermt4k" FromRole="USER" ToRole="ORDER_DETAIL" />
+          <NavigationProperty Name="PAYMENTs" Relationship="fishing4Model.FK_jdgfqlnyvnr58ec37cbeyki2o" FromRole="USER" ToRole="PAYMENT" />
+          <NavigationProperty Name="RATINGs" Relationship="fishing4Model.FK_8fwysr71n8y9wvp91srveyh0o" FromRole="USER" ToRole="RATING" />
+          <NavigationProperty Name="USER_ROLE" Relationship="fishing4Model.FK_j2j8kpywaghe8i36swcxv8784" FromRole="USER" ToRole="USER_ROLE" />
+        </EntityType>
+        <EntityType Name="USER_ROLE">
+          <Key>
+            <PropertyRef Name="USER_ROLE_ID" />
+          </Key>
+          <Property Name="USER_ROLE_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROLE" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="USER" Relationship="fishing4Model.FK_j2j8kpywaghe8i36swcxv8784" FromRole="USER_ROLE" ToRole="USER" />
+        </EntityType>
+        <Association Name="FK_dq9pplwdj444woowv2vfjh4k8">
+          <End Role="USER" Type="fishing4Model.USER" Multiplicity="1" />
+          <End Role="ADDRESS" Type="fishing4Model.ADDRESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ADDRESS">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_g7684olhda6kidi072aw51mhi">
+          <End Role="ORDER_ADDRESS" Type="fishing4Model.ORDER_ADDRESS" Multiplicity="0..1" />
+          <End Role="ORDER_DETAIL" Type="fishing4Model.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_ADDRESS">
+              <PropertyRef Name="ADDRESS_ID" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="ADDRESS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_4nsxta166qmi0u7v02p6gtnxa">
+          <End Role="ORDER_DETAIL" Type="fishing4Model.ORDER_DETAIL" Multiplicity="1" />
+          <End Role="ORDER_PRODUCT" Type="fishing4Model.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_DETAIL">
+              <PropertyRef Name="ORDER_ID" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="ORDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_4vc00e4wflxguoluvgoermt4k">
+          <End Role="USER" Type="fishing4Model.USER" Multiplicity="0..1" />
+          <End Role="ORDER_DETAIL" Type="fishing4Model.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_t7ajqtv9m4h5frcpyddnrlhic">
+          <End Role="ORDER_PAYMENT" Type="fishing4Model.ORDER_PAYMENT" Multiplicity="0..1" />
+          <End Role="ORDER_DETAIL" Type="fishing4Model.ORDER_DETAIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ORDER_PAYMENT">
+              <PropertyRef Name="PAYMENT_ID" />
+            </Principal>
+            <Dependent Role="ORDER_DETAIL">
+              <PropertyRef Name="PAYMENT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ld6cnr5h1q1sl97pg572bixhu">
+          <End Role="PRODUCT" Type="fishing4Model.PRODUCT" Multiplicity="0..1" />
+          <End Role="ORDER_PRODUCT" Type="fishing4Model.ORDER_PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="ORDER_PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_jdgfqlnyvnr58ec37cbeyki2o">
+          <End Role="USER" Type="fishing4Model.USER" Multiplicity="1" />
+          <End Role="PAYMENT" Type="fishing4Model.PAYMENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="PAYMENT">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_bpa0bodql43jldy4j4sdpheaj">
+          <End Role="PRODUCT" Type="fishing4Model.PRODUCT" Multiplicity="0..1" />
+          <End Role="RATING" Type="fishing4Model.RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Principal>
+            <Dependent Role="RATING">
+              <PropertyRef Name="PRODUCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_8fwysr71n8y9wvp91srveyh0o">
+          <End Role="USER" Type="fishing4Model.USER" Multiplicity="0..1" />
+          <End Role="RATING" Type="fishing4Model.RATING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="RATING">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_j2j8kpywaghe8i36swcxv8784">
+          <End Role="USER" Type="fishing4Model.USER" Multiplicity="1" />
+          <End Role="USER_ROLE" Type="fishing4Model.USER_ROLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USER">
+              <PropertyRef Name="USER_ID" />
+            </Principal>
+            <Dependent Role="USER_ROLE">
+              <PropertyRef Name="USER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="fishing4ModelStoreContainer" CdmEntityContainer="fishing4Entities">
+          <EntitySetMapping Name="ADDRESSes">
+            <EntityTypeMapping TypeName="fishing4Model.ADDRESS">
+              <MappingFragment StoreEntitySet="ADDRESS">
+                <ScalarProperty Name="ADDRESS_ID" ColumnName="ADDRESS_ID" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BLOGs">
+            <EntityTypeMapping TypeName="fishing4Model.BLOG">
+              <MappingFragment StoreEntitySet="BLOG">
+                <ScalarProperty Name="BLOG_ID" ColumnName="BLOG_ID" />
+                <ScalarProperty Name="AUTHOR" ColumnName="AUTHOR" />
+                <ScalarProperty Name="CONTENT" ColumnName="CONTENT" />
+                <ScalarProperty Name="INSERT_DATE" ColumnName="INSERT_DATE" />
+                <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_ADDRESS">
+            <EntityTypeMapping TypeName="fishing4Model.ORDER_ADDRESS">
+              <MappingFragment StoreEntitySet="ORDER_ADDRESS">
+                <ScalarProperty Name="ADDRESS_ID" ColumnName="ADDRESS_ID" />
+                <ScalarProperty Name="ADDRESS1" ColumnName="ADDRESS1" />
+                <ScalarProperty Name="ADDRESS2" ColumnName="ADDRESS2" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="ZIP" ColumnName="ZIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_DETAIL">
+            <EntityTypeMapping TypeName="fishing4Model.ORDER_DETAIL">
+              <MappingFragment StoreEntitySet="ORDER_DETAIL">
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+                <ScalarProperty Name="SHIPPING_STATUS" ColumnName="SHIPPING_STATUS" />
+                <ScalarProperty Name="TOTAL_PRICE" ColumnName="TOTAL_PRICE" />
+                <ScalarProperty Name="ADDRESS_ID" ColumnName="ADDRESS_ID" />
+                <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_PAYMENT">
+            <EntityTypeMapping TypeName="fishing4Model.ORDER_PAYMENT">
+              <MappingFragment StoreEntitySet="ORDER_PAYMENT">
+                <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+                <ScalarProperty Name="CARD_HOLDER" ColumnName="CARD_HOLDER" />
+                <ScalarProperty Name="CARD_NUMBER" ColumnName="CARD_NUMBER" />
+                <ScalarProperty Name="EXP_MONTH" ColumnName="EXP_MONTH" />
+                <ScalarProperty Name="EXP_YEAR" ColumnName="EXP_YEAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ORDER_PRODUCT">
+            <EntityTypeMapping TypeName="fishing4Model.ORDER_PRODUCT">
+              <MappingFragment StoreEntitySet="ORDER_PRODUCT">
+                <ScalarProperty Name="ORDER_PRODUCT_ID" ColumnName="ORDER_PRODUCT_ID" />
+                <ScalarProperty Name="QUATITY" ColumnName="QUATITY" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="ORDER_ID" ColumnName="ORDER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAYMENTs">
+            <EntityTypeMapping TypeName="fishing4Model.PAYMENT">
+              <MappingFragment StoreEntitySet="PAYMENT">
+                <ScalarProperty Name="PAYMENT_ID" ColumnName="PAYMENT_ID" />
+                <ScalarProperty Name="CARD_HOLDER" ColumnName="CARD_HOLDER" />
+                <ScalarProperty Name="CARD_NUMBER" ColumnName="CARD_NUMBER" />
+                <ScalarProperty Name="EXP_MONTH" ColumnName="EXP_MONTH" />
+                <ScalarProperty Name="EXP_YEAR" ColumnName="EXP_YEAR" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="fishing4Model.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="DETAIL" ColumnName="DETAIL" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RATINGs">
+            <EntityTypeMapping TypeName="fishing4Model.RATING">
+              <MappingFragment StoreEntitySet="RATING">
+                <ScalarProperty Name="RATING_ID" ColumnName="RATING_ID" />
+                <ScalarProperty Name="COMMENT" ColumnName="COMMENT" />
+                <ScalarProperty Name="RATING_SCORE" ColumnName="RATING_SCORE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="fishing4Model.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ENABLED" ColumnName="ENABLED" />
+                <ScalarProperty Name="FIRST_NAME" ColumnName="FIRST_NAME" />
+                <ScalarProperty Name="LAST_NAME" ColumnName="LAST_NAME" />
+                <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USER_ROLE">
+            <EntityTypeMapping TypeName="fishing4Model.USER_ROLE">
+              <MappingFragment StoreEntitySet="USER_ROLE">
+                <ScalarProperty Name="USER_ROLE_ID" ColumnName="USER_ROLE_ID" />
+                <ScalarProperty Name="ROLE" ColumnName="ROLE" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Fishing4">
+        <EntityTypeShape EntityType="fishing4Model.ADDRESS" Width="1.5" PointX="3" PointY="5.25" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.BLOG" Width="1.5" PointX="0.75" PointY="1" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.ORDER_ADDRESS" Width="1.5" PointX="3.75" PointY="0.75" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.ORDER_DETAIL" Width="1.5" PointX="6" PointY="8.25" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.ORDER_PAYMENT" Width="1.5" PointX="3.75" PointY="23.5" Height="2.172587890624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.ORDER_PRODUCT" Width="1.5" PointX="8.25" PointY="8.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.PAYMENT" Width="1.5" PointX="3" PointY="12.875" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.PRODUCT" Width="1.5" PointX="6" PointY="4.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.RATING" Width="1.5" PointX="3" PointY="9.5" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.USER" Width="1.5" PointX="0.75" PointY="8.125" Height="3.1340950520833353" IsExpanded="true" />
+        <EntityTypeShape EntityType="fishing4Model.USER_ROLE" Width="1.5" PointX="3" PointY="19.125" Height="1.7879850260416674" IsExpanded="true" />
+        <AssociationConnector Association="fishing4Model.FK_dq9pplwdj444woowv2vfjh4k8" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="8.125" />
+          <ConnectorPoint PointX="1.5" PointY="6.6874995" />
+          <ConnectorPoint PointX="3" PointY="6.6874995" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_g7684olhda6kidi072aw51mhi" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.90625" PointY="3.6917936197916656" />
+          <ConnectorPoint PointX="4.90625" PointY="8.9420475260416659" />
+          <ConnectorPoint PointX="4.994791666666667" PointY="8.9420475260416659" />
+          <ConnectorPoint PointX="5.161458333333333" PointY="8.9420475260416659" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="8.9420475260416659" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="8.9420475260416659" />
+          <ConnectorPoint PointX="6" PointY="8.9420475260416659" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_4nsxta166qmi0u7v02p6gtnxa" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="9.7112939453125" />
+          <ConnectorPoint PointX="8.25" PointY="9.7112939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_4vc00e4wflxguoluvgoermt4k" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.2522737630208329" />
+          <ConnectorPoint PointX="4.994791666666667" PointY="9.2522737630208329" />
+          <ConnectorPoint PointX="5.161458333333333" PointY="9.2522737630208329" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="9.2522737630208329" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="9.2522737630208329" />
+          <ConnectorPoint PointX="6" PointY="9.2522737630208329" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_t7ajqtv9m4h5frcpyddnrlhic" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.078125" PointY="23.5" />
+          <ConnectorPoint PointX="5.078125" PointY="8.6630687890625" />
+          <ConnectorPoint PointX="5.541666666666667" PointY="8.6630687890625" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="8.6630687890625" />
+          <ConnectorPoint PointX="6" PointY="8.6630687890625" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_ld6cnr5h1q1sl97pg572bixhu" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="5.7112939453125" />
+          <ConnectorPoint PointX="9" PointY="5.7112939453125" />
+          <ConnectorPoint PointX="9" PointY="8.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_jdgfqlnyvnr58ec37cbeyki2o" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="11.259095052083335" />
+          <ConnectorPoint PointX="1.5" PointY="14.057444661458334" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="14.057444661458334" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="14.057444661458334" />
+          <ConnectorPoint PointX="3" PointY="14.057444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_bpa0bodql43jldy4j4sdpheaj" ManuallyRouted="false">
+          <ConnectorPoint PointX="6" PointY="6.797587890625" />
+          <ConnectorPoint PointX="5.625" PointY="7.172587890625" />
+          <ConnectorPoint PointX="5.625" PointY="10.682444661458334" />
+          <ConnectorPoint PointX="5.161458333333333" PointY="10.682444661458334" />
+          <ConnectorPoint PointX="4.994791666666667" PointY="10.682444661458334" />
+          <ConnectorPoint PointX="4.5" PointY="10.682444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_8fwysr71n8y9wvp91srveyh0o" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="10.379547526041668" />
+          <ConnectorPoint PointX="3" PointY="10.379547526041668" />
+        </AssociationConnector>
+        <AssociationConnector Association="fishing4Model.FK_j2j8kpywaghe8i36swcxv8784" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="11.259095052083335" />
+          <ConnectorPoint PointX="1.9062525" PointY="20.018992513020834" />
+          <ConnectorPoint PointX="3" PointY="20.018992513020834" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
